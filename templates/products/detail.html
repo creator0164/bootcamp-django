@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{object.title}} - {{block.super}}
+{% endblock %}
+
+{% block detail_content %}
+
+    <h3>ID :{{object.pk}} Title :{{object.title}}</h3>
+
+{% if request.path == "/" %}
+
+    <h4>Hey Buddy</h4>
+
+{% else %}
+
+    {% include 'products/detail_snippet.html' with object=object %} 
+
+{% endif %}
+{% endblock %}
